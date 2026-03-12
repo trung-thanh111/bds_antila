@@ -35,9 +35,9 @@
 
     <section class="hp-section bg-white hp-section-padding">
         <div class="uk-container uk-container-center">
-            @if (!empty($posts) && $posts->count() > 0)
-                <div class="hp-post-grid">
-                    @foreach ($posts as $index => $post)
+            <div class="uk-grid uk-grid-large" data-uk-grid-margin>
+                @if (isset($posts) && count($posts) > 0)
+                    @foreach ($posts as $post)
                         @php
                             $postImage = !empty($post->image)
                                 ? asset($post->image)
@@ -48,58 +48,54 @@
                                         (str_ends_with($post->canonical, '.html') ? '' : '.html'),
                                 )
                                 : '#';
-                            $postName = $post->name ?? 'Untitled';
                             $publishedAt = !empty($post->released_at)
                                 ? \Carbon\Carbon::parse($post->released_at)
                                 : \Carbon\Carbon::parse($post->created_at);
-                            $dateFormatted = $publishedAt->format('d/m/Y');
-
-                            $categoryName = '';
-                            if ($post->post_catalogues->count() > 0) {
-                                $cat = $post->post_catalogues->first();
-                                $categoryName = $cat->languages->first()->pivot->name ?? '';
-                            }
                         @endphp
-                        <article class="hp-post-card" data-reveal="up">
-                            <div class="hp-post-card__img blog-img-wrap">
-                                <a href="{{ $postUrl }}">
-                                    <img src="{{ $postImage }}" alt="{{ $postName }}" loading="lazy">
-                                </a>
-                                <div class="hp-post-card__btn">
-                                    <i class="fa fa-arrow-right"></i>
-                                </div>
-                            </div>
-                            <div class="hp-post-card__body">
-                                <div class="hp-post-card__meta">
-                                    <i class="fa fa-calendar-check-o"></i> {{ $dateFormatted }}
-                                </div>
-                                <h3 class="hp-post-card__title">
-                                    <a href="{{ $postUrl }}">{{ $postName }}</a>
-                                </h3>
-
-                                <div class="hp-post-card__footer">
-                                    <a href="{{ $postUrl }}" class="btn-readmore">
-                                        Đọc thêm
-                                        <span class="btn-readmore__icon">
-                                            <i class="fa fa-arrow-right"></i>
-                                        </span>
+                        <div class="uk-width-large-1-3 uk-width-medium-1-2">
+                            <article class="blog-card uk-margin-bottom"
+                                data-uk-scrollspy="{cls:'uk-animation-slide-bottom', delay:{{ 300 + $loop->index * 100 }}}">
+                                <div class="blog-img-wrap">
+                                    <a href="{{ $postUrl }}">
+                                        <img src="{{ $postImage }}" alt="{{ $post->name }}">
                                     </a>
                                 </div>
-                            </div>
-                        </article>
+                                <div class="blog-date">
+                                    <i class="fa fa-calendar-o"></i> {{ $publishedAt->format('d/m/Y') }}
+                                </div>
+                                <h3 class="blog-title">
+                                    <a href="{{ $postUrl }}">{{ Str::limit($post->name, 65) }}</a>
+                                </h3>
+                                <a href="{{ $postUrl }}" class="blog-link">
+                                    Đọc thêm <span class="blog-link-icon"><i class="fa fa-arrow-right"></i></span>
+                                </a>
+                            </article>
+                        </div>
                     @endforeach
-                </div>
-
-                @if ($posts->hasPages())
-                    <div class="uk-margin-large-top">
-                        {{ $posts->links('frontend.component.pagination') }}
-                    </div>
+                @else
+                    @for ($i = 1; $i <= 3; $i++)
+                        <div class="uk-width-large-1-3 uk-width-medium-1-2">
+                            <article class="blog-card"
+                                data-uk-scrollspy="{cls:'uk-animation-slide-bottom', delay:{{ 300 + $i * 100 }}}">
+                                <div class="blog-img-wrap">
+                                    <a href="#">
+                                        <img src="{{ asset('frontend/resources/img/homely/gallery/' . $i . '.webp') }}"
+                                            alt="Mock Blog">
+                                    </a>
+                                </div>
+                                <div class="blog-date">
+                                    <i class="fa fa-calendar-o"></i> {{ date('d M, Y') }}
+                                </div>
+                                <h3 class="blog-title">
+                                    <a href="#">Bí quyết thiết kế căn hộ hiện đại tối ưu không gian</a>
+                                </h3>
+                                <a href="#" class="blog-link">
+                                    Đọc thêm <span class="blog-link-icon"><i class="fa fa-arrow-right"></i></span>
+                                </a>
+                            </article>
+                        </div>
+                    @endfor
                 @endif
-            @else
-                <div class="hp-empty-state uk-text-center">
-                    <p>Không tìm thấy bài viết nào trong chuyên mục này.</p>
-                </div>
-            @endif
-        </div>
+            </div>
     </section>
 @endsection

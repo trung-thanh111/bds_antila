@@ -995,6 +995,7 @@ p {
 }
 
 .blog-card {
+  padding: 0 20px;
   background: transparent;
   transition: transform 0.4s ease;
 }
@@ -2650,15 +2651,24 @@ textarea.antila-input {
 .hp-form-v2-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 25px;
+  gap: 10px;
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
+}
+
+.uk-grid>.ameniti_info {
+  padding-left: 30px !important;
 }
 
 .hp-form-v2-group {
-  margin-bottom: 25px;
+  margin-bottom: 10px;
 }
 
 .hp-form-v2-group.full-width {
   grid-column: span 2;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .hp-form-v2-label {
@@ -2679,6 +2689,7 @@ textarea.antila-input {
   font-size: 15px;
   color: #333;
   transition: all 0.3s ease;
+  box-sizing: border-box;
 }
 
 .hp-form-v2-textarea {
@@ -3062,142 +3073,160 @@ textarea.antila-input {
   background: var(--clr-green-light);
   transform: translateY(-3px);
 }
+
 /* ── RESPONSIVE FIXES ── */
 
 /* Fix horizontal overflow for all grids */
 .uk-grid {
-    margin-left: 0 !important;
-    width: 100% !important;
-    box-sizing: border-box !important;
+  margin-left: 0 !important;
+  width: 100% !important;
+  box-sizing: border-box !important;
 }
-.uk-grid > * {
-    padding-left: 0 !important;
-    box-sizing: border-box !important;
+
+.uk-grid>* {
+  padding-left: 0 !important;
+  box-sizing: border-box !important;
 }
 
 /* Property/Contact Forms */
 @media (max-width: 767px) {
-    .hp-form-v2-grid {
-        grid-template-columns: 1fr !important;
-        gap: 15px !important;
-    }
-    .hp-form-v2-group.full-width {
-        grid-column: span 1 !important;
-    }
-    .hp-contact-v2__form-wrap {
-        padding: 20px !important;
-    }
+  .hp-form-v2-grid {
+    grid-template-columns: 1fr !important;
+    gap: 15px !important;
+  }
+
+  .hp-form-v2-group.full-width {
+    grid-column: span 1 !important;
+  }
+
+  .hp-contact-v2__form-wrap {
+    padding: 20px !important;
+  }
 }
 
 /* Contact Info Text Wrapping */
 .hp-contact-v2__val {
-    word-break: break-word;
-    overflow-wrap: break-word;
+  word-break: break-word;
+  overflow-wrap: break-word;
 }
 
 @media (max-width: 480px) {
-    .hp-contact-v2__item {
-        flex-direction: column;
-        align-items: flex-start !important;
-        gap: 10px !important;
-        width: 100% !important;
-    }
-    .hp-contact-v2__title {
-        font-size: 32px !important;
-    }
+  .hp-contact-v2__item {
+    flex-direction: column;
+    align-items: flex-start !important;
+    gap: 10px !important;
+    width: 100% !important;
+  }
+
+  .hp-contact-v2__title {
+    font-size: 32px !important;
+  }
 }
 
 /* Neighbourhood & Blog Cards Overflow */
-.hp-nb-card, .hp-post-card {
-    max-width: 100% !important;
-    width: 100% !important;
-    box-sizing: border-box !important;
+.hp-nb-card,
+.hp-post-card {
+  max-width: 100% !important;
+  width: 100% !important;
+  box-sizing: border-box !important;
 }
 
-.hp-nb-card__img img, .hp-post-card__img img {
-    max-width: 100% !important;
-    width: 100% !important;
-    height: auto !important;
+.hp-nb-card__img img,
+.hp-post-card__img img {
+  max-width: 100% !important;
+  width: 100% !important;
+  height: auto !important;
 }
 
 /* Sidebar Responsive Refinement */
 @media (max-width: 767px) {
-    .hp-offcanvas-bar {
-        padding: 60px 20px 20px !important;
-    }
-    .hp-offcanvas-contact.uk-padding-left {
-        padding-left: 15px !important;
-    }
-    .hp-offcanvas-nav .uk-nav-offcanvas > li > a {
-        font-size: 16px !important;
-    }
+  .hp-offcanvas-bar {
+    padding: 60px 20px 20px !important;
+  }
+
+  .hp-offcanvas-contact.uk-padding-left {
+    padding-left: 15px !important;
+  }
+
+  .hp-offcanvas-nav .uk-nav-offcanvas>li>a {
+    font-size: 16px !important;
+  }
 }
 
 /* ── REFINED RESPONSIVE FIXES ── */
 
 /* Neighbourhood Grid Fix */
 @media (max-width: 767px) {
-    .hp-nb-grid {
-        grid-template-columns: 1fr !important;
-        gap: 20px !important;
-    }
-    .hp-nb-item {
-        min-height: auto !important;
-        padding: 25px !important;
-    }
+  .hp-nb-grid {
+    grid-template-columns: 1fr !important;
+    gap: 20px !important;
+  }
+
+  .hp-nb-item {
+    min-height: auto !important;
+    padding: 25px !important;
+  }
 }
 
 /* Post List Grid Fix */
 @media (max-width: 959px) {
-    .hp-post-grid {
-        grid-template-columns: repeat(2, 1fr) !important;
-        gap: 20px !important;
-    }
+  .hp-post-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 20px !important;
+  }
 }
+
 @media (max-width: 640px) {
-    .hp-post-grid {
-        grid-template-columns: 1fr !important;
-    }
+  .hp-post-grid {
+    grid-template-columns: 1fr !important;
+  }
 }
 
 /* About Page Form (Real Estate Page) Fix */
 @media (max-width: 959px) {
-    .around-split-container {
-        flex-direction: column !important;
-        display: flex !important;
-    }
-    .around-contact-side, .around-slider-side {
-        width: 100% !important;
-        padding: 0 !important;
-    }
-    .around-contact-side {
-        margin-bottom: 50px !important;
-    }
-    .around-project-wrapper {
-        padding: 60px 0 !important;
-    }
-    
-    /* Ensure fields stack in About page form */
-    .around-contact-side .uk-grid > .uk-width-1-2 {
-        width: 100% !important;
-    }
+  .around-split-container {
+    flex-direction: column !important;
+    display: flex !important;
+  }
+
+  .around-contact-side,
+  .around-slider-side {
+    width: 100% !important;
+    padding: 0 !important;
+  }
+
+  .around-contact-side {
+    margin-bottom: 50px !important;
+  }
+
+  .around-project-wrapper {
+    padding: 60px 0 !important;
+  }
+
+  /* Ensure fields stack in About page form */
+  .around-contact-side .uk-grid>.uk-width-1-2 {
+    width: 100% !important;
+  }
 }
 
 /* General Card Overflow Fix */
-.hp-nb-item, .hp-post-card, .fp-item {
-    max-width: 100% !important;
-    overflow: hidden !important;
+.hp-nb-item,
+.hp-post-card,
+.fp-item {
+  max-width: 100% !important;
+  overflow: hidden !important;
 }
 
 /* Contact Info No-Wrap Fix */
 .hp-contact-v2__info {
-    overflow-wrap: break-word !important;
-    word-wrap: break-word !important;
-    word-break: break-all !important; /* Fallback for very long emails/links */
+  overflow-wrap: break-word !important;
+  word-wrap: break-word !important;
+  word-break: break-all !important;
+  /* Fallback for very long emails/links */
 }
 
 @media (max-width: 767px) {
-    .hp-contact-v2__info {
-        padding: 30px !important;
-    }
+  .hp-contact-v2__info {
+    padding: 30px !important;
+  }
 }

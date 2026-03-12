@@ -129,7 +129,7 @@ class HomeController extends FrontendController
     private function buildSeo($title = null)
     {
         return [
-            'meta_title' => $title ?? ($this->system['seo_meta_title'] ?? 'HomePark'),
+            'meta_title' => $title ?? ($this->system['seo_meta_title'] ?? 'Antila'),
             'meta_keyword' => $this->system['seo_meta_keyword'] ?? '',
             'meta_description' => $this->system['seo_meta_description'] ?? '',
             'meta_image' => $this->system['seo_meta_images'] ?? '',

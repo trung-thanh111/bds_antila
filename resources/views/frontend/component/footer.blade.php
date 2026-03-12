@@ -64,7 +64,7 @@
                     </div>
                 </div>
 
-                <div class="uk-width-large-1-5 uk-width-medium-1-2">
+                <div class="uk-width-large-1-5 uk-width-medium-1-2 uk-margin-left">
                     <div data-uk-scrollspy="{cls:'uk-animation-slide-bottom', delay:400}">
                         @if (isset($menu['footer-menu'][0]))
                             <h4 class="footer-column-title">
@@ -83,16 +83,15 @@
                             <h4 class="footer-column-title">Liên Kết Nhanh</h4>
                             <ul class="footer-list">
                                 <li><a href="/">Trang chủ</a></li>
-                                <li><a href="/gioi-thieu.html">Giới thiệu</a></li>
-                                <li><a href="/tien-ich.html">Tiện ích</a></li>
+                                <li><a href="/bat-dong-san.html">Bất động sản</a></li>
+                                <li><a href="/bai-viet.html">Bài viết</a></li>
                                 <li><a href="/thu-vien.html">Thư viện ảnh</a></li>
-                                <li><a href="/lien-he.html">Liên hệ ngay</a></li>
+                                <li><a href="/lien-he.html">Liên hệ</a></li>
                             </ul>
                         @endif
                     </div>
                 </div>
 
-                <!-- Column 3: Amenities -->
                 <div class="uk-width-large-1-5 uk-width-medium-1-2">
                     <div data-uk-scrollspy="{cls:'uk-animation-slide-bottom', delay:500}">
                         @if (isset($menu['footer-menu'][2]))
@@ -146,7 +145,7 @@
                             <div class="contact-info-icon"><i class="fa fa-map-marker"></i></div>
                             <div class="contact-info-content">
                                 <label>Vị trí dự án</label>
-                                <span>{{ $system['contact_address'] ?? '742 Evergreen Terrace, Quận 7, TP. HCM' }}</span>
+                                <span>{{ $property->address ?? '742 Evergreen Terrace, Quận 7, TP. HCM' }}</span>
                             </div>
                         </div>
                     </div>
@@ -154,7 +153,6 @@
             </div>
         </div>
 
-        <!-- Footer Bottom -->
         <div class="footer-bottom-wrap">
             <div class="footer-copyright">
                 {!! $system['homepage_copyright'] ?? 'Copyright © ' . date('Y') . ' Antila. All Rights Reserved.' !!}

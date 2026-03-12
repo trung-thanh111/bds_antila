@@ -124,7 +124,8 @@
                     </div>
                 </div>
 
-                <div class="uk-width-large-6-10" data-uk-scrollspy="{cls:'uk-animation-slide-right', delay:400}">
+                <div class="uk-width-large-6-10 ameniti_info"
+                    data-uk-scrollspy="{cls:'uk-animation-slide-right', delay:400}">
                     <div class="about-amenity-badge">
                         <span></span> {{ $property->label ?? 'Tiêu chuẩn quốc tế' }}
                     </div>
@@ -191,60 +192,59 @@
         style="background-image: url('{{ $property->image ?? asset('frontend/resources/img/homely/slider/1.webp') }}');">
         <div class="uk-container uk-container-center">
             <div class="around-split-container" data-uk-scrollspy="{cls:'uk-animation-slide-bottom', delay:300}">
-                <!-- Cột trái: Form liên hệ (Đồng bộ trang chủ) -->
                 <div class="around-contact-side">
                     <div class="contact-form-card" style="box-shadow: none; padding: 0; background: transparent;">
                         <h3 style="text-align: left; margin-bottom: 30px;">Gửi lời nhắn cho chúng tôi</h3>
-                        <form action="{{ route('visit-request.store') }}" method="POST">
+                        <form id="visit-request-form" method="post" action="{{ route('visit-request.store') }}">
                             @csrf
                             <input type="hidden" name="property_id" value="{{ $property->id ?? '' }}">
 
-                            <div class="antila-field-group">
-                                <label>Họ và tên</label>
-                                <input type="text" name="full_name" placeholder="Ví dụ: Nguyễn Văn A"
-                                    class="antila-input" required>
-                            </div>
+                            <div class="hp-form-v2-grid">
+                                <div class="hp-form-v2-group full-width">
+                                    <label class="hp-form-v2-label">Họ và tên:</label>
+                                    <input type="text" name="full_name" placeholder="Ví dụ: Nguyễn Văn A"
+                                        class="hp-form-v2-input" required>
+                                </div>
+                                <div class="hp-form-v2-group">
+                                    <label class="hp-form-v2-label">Địa chỉ Email:</label>
+                                    <input type="email" name="email" placeholder="email@example.com"
+                                        class="hp-form-v2-input" required>
+                                </div>
+                                <div class="hp-form-v2-group">
+                                    <label class="hp-form-v2-label">Số điện thoại:</label>
+                                    <input type="text" name="phone" placeholder="090 xxx xxxx"
+                                        class="hp-form-v2-input" required>
+                                </div>
 
-                            <div class="uk-grid uk-grid-small uk-margin-bottom" data-uk-grid-margin>
-                                <div class="uk-width-1-2">
-                                    <div class="antila-field-group">
-                                        <label>Địa chỉ Email</label>
-                                        <input type="email" name="email" placeholder="email@example.com"
-                                            class="antila-input" required>
-                                    </div>
+                                <div class="hp-form-v2-group">
+                                    <label class="hp-form-v2-label">Ngày tham quan</label>
+                                    <input type="date" name="preferred_date" class="hp-form-v2-input">
                                 </div>
-                                <div class="uk-width-1-2">
-                                    <div class="antila-field-group">
-                                        <label>Số điện thoại</label>
-                                        <input type="text" name="phone" placeholder="090 xxx xxxx"
-                                            class="antila-input" required>
-                                    </div>
+                                <div class="hp-form-v2-group">
+                                    <label class="hp-form-v2-label">Giờ tham quan</label>
+                                    <input type="time" name="preferred_time" class="hp-form-v2-input">
                                 </div>
-                            </div>
 
-                            <div class="uk-grid uk-grid-small uk-margin-bottom" data-uk-grid-margin>
-                                <div class="uk-width-1-2">
-                                    <div class="antila-field-group">
-                                        <label>Ngày tham quan</label>
-                                        <input type="date" name="preferred_date" class="antila-input">
-                                    </div>
-                                </div>
-                                <div class="uk-width-1-2">
-                                    <div class="antila-field-group">
-                                        <label>Giờ tham quan</label>
-                                        <input type="time" name="preferred_time" class="antila-input">
-                                    </div>
+                                <div class="hp-form-v2-group full-width">
+                                    <label class="hp-form-v2-label">Lời nhắn:</label>
+                                    <textarea name="message" placeholder="Nhập thêm yêu cầu của bạn tại đây..."
+                                        class="hp-form-v2-input hp-form-v2-textarea"></textarea>
                                 </div>
                             </div>
 
-                            <div class="antila-field-group">
-                                <label>Lời nhắn</label>
-                                <textarea name="message" placeholder="Tôi muốn hỏi về..." class="antila-input" style="height: 100px;"></textarea>
+                            <div class="uk-margin-top uk-flex uk-flex-end">
+                                <button type="submit" class="btn-contact-v2">
+                                    Gửi lời nhắn <i class="fa fa-arrow-right"></i>
+                                </button>
                             </div>
 
-                            <button type="submit" class="btn-antila uk-width-1-1">
-                                Gửi yêu cầu ngay <i class="fa fa-arrow-right"></i>
-                            </button>
+                            <div class="visit-form-success"
+                                style="display:none; margin-top:30px; padding:25px; background:#f2f3ee; border-radius:15px; color:#1a1a1a; text-align:center;">
+                                <h4 style="margin:0; font-weight: 700;">Yêu cầu của bạn đã được gửi thành công!</h4>
+                                <p style="margin: 10px 0 0; opacity: 0.7;">Chúng tôi sẽ liên hệ lại với bạn trong thời gian
+                                    sớm
+                                    nhất.</p>
+                            </div>
                         </form>
                     </div>
                 </div>

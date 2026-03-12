@@ -9,7 +9,7 @@
 <script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.umd.js"></script>
 <script src="{{ asset('frontend/resources/plugins/wow/dist/wow.min.js') }}"></script>
 <script src="{{ asset('frontend/resources/function.js') }}"></script>
-<script src="{{ asset('frontend/resources/js/linden.js') }}"></script>
+<script src="{{ asset('frontend/resources/js/antila.js') }}"></script>
 <script>
     document.addEventListener("DOMContentLoaded", function() {
         if (typeof Fancybox !== 'undefined') {

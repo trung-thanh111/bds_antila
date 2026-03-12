@@ -38,7 +38,7 @@
             @if ($offcanvasProperty && !empty($offcanvasProperty->description_short))
                 {!! $offcanvasProperty->description_short !!}
             @else
-                Chúng tôi tự hào mang đến không gian sống đẳng cấp và khác biệt. Homepark là nơi khởi đầu cho tổ ấm lý
+                Chúng tôi tự hào mang đến không gian sống đẳng cấp và khác biệt. Antila là nơi khởi đầu cho tổ ấm lý
                 tưởng của bạn với những giá trị bền vững và thiết kế tinh tế.
             @endif
         </div>
@@ -72,8 +72,8 @@
                 <a href="tel:{{ $system['contact_hotline'] ?? '+380(98)298-59-73' }}">
                     {{ $system['contact_hotline'] ?? '+380(98)298-59-73' }}
                 </a>
-                <a href="mailto:{{ $system['contact_email'] ?? 'hello@homepark.com.ua' }}">
-                    {{ $system['contact_email'] ?? 'hello@homepark.com.ua' }}
+                <a href="mailto:{{ $system['contact_email'] ?? 'hello@Antila.com.ua' }}">
+                    {{ $system['contact_email'] ?? 'hello@Antila.com.ua' }}
                 </a>
             @endif
         </div>
@@ -131,15 +131,15 @@
                 Liên hệ
             </div>
             <div style="font-size: 14px; margin-bottom: 10px; opacity: 0.8;">
-                {{ $system['contact_address'] ?? '742 Evergreen Terrace, Quận 7, TP. HCM' }}
+                {{ $property->address ?? '742 Evergreen Terrace, Quận 7, TP. HCM' }}
             </div>
             <a href="tel:{{ $system['contact_hotline'] ?? '+380(98)298-59-73' }}"
                 style="font-size: 18px; font-weight: 700; margin-bottom: 5px;">
                 {{ $system['contact_hotline'] ?? '+380(98)298-59-73' }}
             </a>
-            <a href="mailto:{{ $system['contact_email'] ?? 'hello@homepark.com.ua' }}"
+            <a href="mailto:{{ $system['contact_email'] ?? 'hello@Antila.com.ua' }}"
                 style="font-size: 14px; opacity: 0.8;">
-                {{ $system['contact_email'] ?? 'hello@homepark.com.ua' }}
+                {{ $system['contact_email'] ?? 'hello@Antila.com.ua' }}
             </a>
         </div>
 
