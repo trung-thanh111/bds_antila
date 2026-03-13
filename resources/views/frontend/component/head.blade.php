@@ -13,7 +13,25 @@
 <link rel="stylesheet" href="{{ asset('frontend/resources/uikit/css/uikit.modify.css') }}">
 <link rel="stylesheet" href="{{ asset('frontend/resources/fonts/font-awesome-4.7.0/css/font-awesome.min.css') }}">
 <link rel="stylesheet" href="{{ asset('frontend/resources/library/css/library.css') }}">
-<link rel="stylesheet" href="{{ asset('frontend/resources/plugins/wow/css/libs/animate.css') }}">
+
+{{-- disable animation --}}
+{{-- <link rel="stylesheet" href="{{ asset('frontend/resources/plugins/wow/css/libs/animate.css') }}"> --}}
+<style id="disable-animations">
+    *,
+    *::before,
+    *::after {
+        animation: none !important;
+        transition: none !important;
+    }
+
+    [data-uk-scrollspy] {
+        opacity: 1 !important;
+        visibility: visible !important;
+        transform: none !important;
+    }
+</style>
+{{-- end disable animation --}}
+
 <link rel="stylesheet" href="{{ asset('frontend/resources/style.css') }}">
 <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.css" />

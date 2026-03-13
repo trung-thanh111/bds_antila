@@ -7,7 +7,11 @@
 
 <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.umd.js"></script>
-<script src="{{ asset('frontend/resources/plugins/wow/dist/wow.min.js') }}"></script>
+
+{{-- disable animation --}}
+{{-- <script src="{{ asset('frontend/resources/plugins/wow/dist/wow.min.js') }}"></script> --}}
+{{-- end disable animation --}}
+
 <script src="{{ asset('frontend/resources/function.js') }}"></script>
 <script src="{{ asset('frontend/resources/js/antila.js') }}"></script>
 <script>
@@ -22,10 +26,13 @@
                 spaceBetween: 20,
                 slidesPerGroup: 1,
                 loop: true,
-                autoplay: {
-                    delay: 3000,
-                    disableOnInteraction: false,
-                },
+                // disable animation
+                autoplay: false,
+                // enable animation
+                // autoplay: {
+                //     delay: 3000,
+                //     disableOnInteraction: false,
+                // },
                 navigation: {
                     nextEl: ".swiper-button-next",
                     prevEl: ".swiper-button-prev",
@@ -50,10 +57,13 @@
                 slidesPerView: 1,
                 spaceBetween: 30,
                 loop: true,
-                autoplay: {
-                    delay: 5000,
-                    disableOnInteraction: false,
-                },
+                // disable animation
+                autoplay: false,
+                // enable animation
+                // autoplay: {
+                //     delay: 3000,
+                //     disableOnInteraction: false,
+                // },
                 navigation: {
                     nextEl: ".swiper-button-around-next",
                     prevEl: ".swiper-button-around-prev",
